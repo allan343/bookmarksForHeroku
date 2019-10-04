@@ -24,6 +24,7 @@ const BookmarksService = {
       .where({ id })
       .update(newBookmarkFields)
   },
+
 }
 
 module.exports = BookmarksService

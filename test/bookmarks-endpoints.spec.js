@@ -79,7 +79,7 @@ describe('Bookmarks Endpoints', () => {
         return supertest(app)
           .get('/bookmarks')
           .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-          .expect(200, testBookmarks)
+          .expect(200, testBookmarks)//testBookmarks
       })
     })
 
@@ -165,7 +165,7 @@ describe('Bookmarks Endpoints', () => {
           .delete(`/bookmarks/123`)
           .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
           .expect(404, {
-            error: { message: `Bookmark Not Found` }
+            error: { message: `Bookmark Not Found` } //send 404?
           })
       })
     })
@@ -190,7 +190,7 @@ describe('Bookmarks Endpoints', () => {
             supertest(app)
               .get(`/bookmarks`)
               .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-              .expect(expectedBookmarks)
+              .expect(expectedBookmarks) 
           )
       })
     })
@@ -200,7 +200,7 @@ describe('Bookmarks Endpoints', () => {
     it(`responds with 400 missing 'title' if not supplied`, () => {
       const newBookmarkMissingTitle = {
         // title: 'test-title',
-        url: 'https://test.com',
+        url: 'https://test.com', //where is this?
         rating: 1,
       }
       return supertest(app)
